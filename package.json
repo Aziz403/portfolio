@@ -30,25 +30,29 @@
     "map": false
   },
   "scripts": {
-    "build": "webpack --mode production",
-    "dev": "webpack --mode development --watch",
-    "watch": "node-sass sass/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
+    "webpack:build": "webpack --mode development",
+    "webpack:dev": "webpack --mode development --watch",
+    "tailwind:dev": "tailwindcss -i ./src/style/tailwind.scss -o ./dist/tailwind.css --watch",
+    "node-sass:watch": "node-sass sass/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
     "compile:css": "node-sass sass/ -o ./ && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
     "compile:rtl": "rtlcss style.css style-rtl.css",
     "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
     "lint:js": "wp-scripts lint-js 'js/*.js'",
-    "bundle": "dir-archiver --src . --dest ../_s.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock"
+    "archiver:bundle": "dir-archiver --src . --dest ../_s.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock"
   },
   "devDependencies": {
     "@wordpress/scripts": "^25.3.0",
+    "autoprefixer": "^10.4.13",
     "bable-loader": "^0.0.1-security",
     "css-loader": "^6.7.3",
     "dir-archiver": "^2.1.0",
     "mini-css-extract-plugin": "^2.7.2",
     "node-sass": "^8.0.0",
+    "postcss": "^8.4.21",
     "rtlcss": "^4.0.0",
     "scss-loader": "^0.0.1",
     "style-loader": "^3.3.1",
+    "tailwindcss": "^3.2.4",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
   }
